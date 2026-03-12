@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Dados (A "Matéria" não sobe para o Git)
+data/bronze/
+data/silver/
+data/gold/*.parquet
+data/gold/*.csv
+
+# Logs e IDEs
+.vscode/
+.idea/
+*.log
+
