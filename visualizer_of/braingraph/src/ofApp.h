@@ -3,15 +3,14 @@
 #include "ofMain.h"
 #include "ofxOsc.h"
 
-// Estrutura do Neurônio Bio-Inspirado
 struct Neuron {
     int id;
     ofVec3f pos;
     vector<int> neighborIDs;
     ofColor color;
-    float lastPulseTime; // Buffer para o rastro de luz da inferência
-    float severity;
+    float lastPulseTime = -10.0f; 
 };
+
 
 class ofApp : public ofBaseApp{
 
@@ -33,17 +32,14 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h) override;
 		void dragEvent(ofDragInfo dragInfo) override;
 		void gotMessage(ofMessage msg) override;
-		
-		ofxOscReceiver receiver;
+    
+       	ofxOscReceiver receiver;
         vector<Neuron> neurons;
         ofEasyCam cam;
         
-        // Estado do Hiperplano
         float rotationY;
         float brainGlow;
+        float inferenceError;
         ofColor currentColor;
-        ofColor targetColor;
-
-        // Visualização
-        ofTrueTypeFont font;
+        ofColor targetColor; 
 };
